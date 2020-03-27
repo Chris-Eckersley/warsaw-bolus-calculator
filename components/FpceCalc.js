@@ -27,9 +27,9 @@ export default function BolusCalculator(props) {
   };
 
   const handleCalculateBolus = () => {
-    const fpu = (fat * 9 + protein * 4) / 100;
+    const fpu = (fat * 9 + protein * 4) / 100; // Fat & protien calories devided into 100 calorie units
     const normalBolus = carbs / insulinToCarbRatio;
-    const fpuCarbEquivalent = fpu * 10;
+    const fpuCarbEquivalent = (fpu * 8); // 1 FPU is equal to 8 carbs
     const squareWaveBolus = fpuCarbEquivalent / insulinToCarbRatio;
     const cu = carbs / 10 ; // carb units for formula
     const carbUnitPercent = cu/(cu + fpu);
@@ -65,7 +65,9 @@ export default function BolusCalculator(props) {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Card title='Waraw Method Bolus Calculator'>
+        <Card
+          title='Low carb bolus calculator - Warsaw Method Bolus Estimator'
+          subtitle='Warsaw Method Bolus Estimator'>
           <Input
             label='Insulin to carb ratio'
             keyboardType='numeric'
