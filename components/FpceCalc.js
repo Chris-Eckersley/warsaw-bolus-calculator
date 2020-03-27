@@ -105,23 +105,8 @@ export default function BolusCalculator(props) {
         </Card>
         <Card title="Results">
           <ListItem
-            title='Total insulin dose (sq wave + normal bolus)'
-            subtitle={results.totalInsulinDose.toString() + ' units'}
-            bottomDivider
-            />
-          <ListItem
-            title='Normal bolus (carbs/icr)'
+            title='Normal bolus'
             subtitle={results.normalBolus.toString() + ' units'}
-            bottomDivider
-            />
-          <ListItem
-            title='FPU: (Units of 100 calories from protien and fat)'
-            subtitle={results.fpu.toString() + 'FPUs'}
-            bottomDivider
-            />
-          <ListItem
-            title='FPU carb equivalent (Enter as carbs into loop or AP)'
-            subtitle={results.fpuCarbEquivalent.toString() + ' grams'}
             bottomDivider
             />
           <ListItem
@@ -130,8 +115,23 @@ export default function BolusCalculator(props) {
             bottomDivider
             />
           <ListItem
-            title='Absorbtion time for FPU carb equivalents'
+            title='Square wave bolus duration'
             subtitle={results.squareWaveDuration.toString() + ' hours'}
+            bottomDivider
+            />
+          <ListItem
+            title='Total insulin dose'
+            subtitle={results.totalInsulinDose.toString() + ' units'}
+            bottomDivider
+            />
+          <ListItem
+            title='FPU carb equivalent'
+            subtitle={results.fpuCarbEquivalent.toString() + ' grams'}
+            bottomDivider
+            />
+          <ListItem
+            title='FPU'
+            subtitle={results.fpu.toString() + ' FPUs'}
             bottomDivider
             />
         </Card>
