@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Warsaw Calc",
-    "slug": "warsaw-calc",
+    "name": "Warsaw Bolus Calculator",
+    "slug": "warsaw-bolus-calculator",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
