@@ -27,8 +27,8 @@ export default function DisclaimerOverlay() {
     return (
       <Overlay isVisible={true}>
         <Card title='Disclaimer'>
-          <Text>Warning - Consult your healthcare provider and diabetic educator before using this app to make treatment decissions.</Text>
-          <Text>By click "Accept terms" you take all responsibility of using this app.</Text>
+          <Text>Warning - Consult your healthcare provider and diabetic educator before using this app to make any treatment decissions.</Text>
+          <Text>By clicking "Accept terms" you take all responsibility for using this app and release the developer of any and all liability.</Text>
           <Button
           title="Accept terms"
           onPress={handleAcceptTerms}

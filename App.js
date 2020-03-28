@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Input, Card, ListItem } from 'react-native-elements';
-import { Header } from 'react-native-elements';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Fpce from './components/FpceCalc';
+import Fpce from './screens/FpceCalc';
+import WarsawInfoScreen from './screens/WarsawMethodInfo';
 import DisclaimerOverlay from './components/DisclaimerOverlay';
 
 const styles = StyleSheet.create({
@@ -12,20 +13,35 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function App() {
+function HomeScreen() {
+  return (
+    <View style={styles.container}>
+      <Fpce />
+    </View>
+  )
+}
+
+const Tab = createBottomTabNavigator();
+
+function MainTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Info" component={WarsawInfoScreen} />
+    </Tab.Navigator>
+  );
+}
+
+function App() {
+  
   return (
     <React.Fragment>
-      <Header
-        placement='left'
-        leftComponent={{ icon: 'menu', color: '#fff' }}
-        centerComponent={{ text: 'BOLUS CALCULATOR', style: { color: '#fff' } }}
-        rightComponent={{ icon: 'home', color: '#fff' }}
-      >
-      </Header>
-      <View style={styles.container}>
-        <Fpce />
-      </View>
+      <NavigationContainer>
+        <MainTabs />
+      </NavigationContainer>
       <DisclaimerOverlay />
     </React.Fragment>
   );
 }
+
+export default App;

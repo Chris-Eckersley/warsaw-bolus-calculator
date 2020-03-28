@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useContext } from 'react';
-import { StyleSheet, Text, View, Keyboard, SafeAreaView, ScrollView } from 'react-native';
+import React, { useState} from 'react';
+import { StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import { Input, Card, ListItem, Button } from 'react-native-elements';
 
