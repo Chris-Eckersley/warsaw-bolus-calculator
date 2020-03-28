@@ -31,8 +31,8 @@ export default function BolusCalculator(props) {
     const normalBolus = carbs / insulinToCarbRatio;
     const fpuCarbEquivalent = (fpu * 8); // 1 FPU is equal to 8 carbs
     const squareWaveBolus = fpuCarbEquivalent / insulinToCarbRatio;
-    const cu = carbs / 10 ; // carb units for formula
-    const carbUnitPercent = cu/(cu + fpu);
+    const cu = carbs / 10; // carb units for formula
+    const carbUnitPercent = cu / (cu + fpu);
     const totalInsulinDose = squareWaveBolus + normalBolus;
 
 
@@ -41,11 +41,11 @@ export default function BolusCalculator(props) {
       totalInsulinDose: Math.round(totalInsulinDose * 10) / 10,
       normalBolus: Math.round(normalBolus * 10) / 10,
       squareWaveBolus: Math.round(squareWaveBolus * 10) / 10,
-      fpuCarbEquivalent: Math.round(fpuCarbEquivalent * 10) /10,
+      fpuCarbEquivalent: Math.round(fpuCarbEquivalent * 10) / 10,
       squareWaveDuration: squareWaveDuration(fpu, carbUnitPercent)
     })
 
-    function squareWaveDuration (fpu, cu_perc) {
+    function squareWaveDuration(fpu, cu_perc) {
       if (fpu < 1) {
         return 0;
       } else if (cu_perc > 0.8) {
@@ -66,74 +66,74 @@ export default function BolusCalculator(props) {
     <SafeAreaView>
       <ScrollView>
         <Card
-          title='Low carb bolus calculator - Warsaw Method Bolus Estimator'
-          subtitle='Warsaw Method Bolus Estimator'>
+          title='Warsaw bolus calculator'
+        >
           <Input
             label='Insulin to carb ratio'
             keyboardType='numeric'
             value={insulinToCarbRatio}
             onChangeText={text => setInsulinToCarbRatio(text)}
-            />
+          />
           <Input
             label='Carbs'
             keyboardType='numeric'
             value={carbs}
             onChangeText={text => setCarbs(text)}
-            />
+          />
           <Input
             label='Fat'
             keyboardType='numeric'
             value={fat}
             onChangeText={text => setFat(text)}
-            />
+          />
           <Input
             label='Protein'
             keyboardType='numeric'
             value={protein}
             onChangeText={text => setProtein(text)}
-            />
+          />
           <Button
             title="Calculate bolus"
             type="outline"
             onPress={handleCalculateBolus}
-            />
+          />
           <Button
             title="Reset"
             type="outline"
             onPress={handleReset}
-            />
+          />
         </Card>
         <Card title="Results">
           <ListItem
             title='Normal bolus'
             subtitle={results.normalBolus.toString() + ' units'}
             bottomDivider
-            />
+          />
           <ListItem
             title='Square wave bolus'
             subtitle={results.squareWaveBolus.toString() + ' units'}
             bottomDivider
-            />
+          />
           <ListItem
             title='Square wave bolus duration'
             subtitle={results.squareWaveDuration.toString() + ' hours'}
             bottomDivider
-            />
+          />
           <ListItem
             title='Total insulin dose'
             subtitle={results.totalInsulinDose.toString() + ' units'}
             bottomDivider
-            />
+          />
           <ListItem
             title='FPU carb equivalent'
             subtitle={results.fpuCarbEquivalent.toString() + ' grams'}
             bottomDivider
-            />
+          />
           <ListItem
             title='FPU'
             subtitle={results.fpu.toString() + ' FPUs'}
             bottomDivider
-            />
+          />
         </Card>
       </ScrollView>
     </SafeAreaView>
@@ -143,7 +143,7 @@ export default function BolusCalculator(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: Constants.statusBarHeight
   },
   scrollView: {
     backgroundColor: 'pink',

@@ -14,18 +14,18 @@ const styles = StyleSheet.create({
 
 export default function App() {
   return (
-      <React.Fragment>
-        <Header
-          placement='left'
-          leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'LOW CARB BOLUS CALCULATOR', style: { color: '#fff' } }}
-          rightComponent={{ icon: 'home', color: '#fff' }}
-          >
-        </Header>
-        <View style={styles.container}>
-          <Fpce />
-        </View>
-        <DisclaimerOverlay />
-      </React.Fragment>
+    <React.Fragment>
+      <Header
+        placement='left'
+        leftComponent={{ icon: 'menu', color: '#fff' }}
+        centerComponent={{ text: 'BOLUS CALCULATOR', style: { color: '#fff' } }}
+        rightComponent={{ icon: 'home', color: '#fff' }}
+      >
+      </Header>
+      <View style={styles.container}>
+        <Fpce />
+      </View>
+      <DisclaimerOverlay />
+    </React.Fragment>
   );
 }
